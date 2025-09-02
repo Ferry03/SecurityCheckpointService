@@ -1,0 +1,18 @@
+services:
+  checkpoint-db:
+    image: postgres:16.3-bullseye
+    container_name: checkpoint_db
+    ports:
+      - 5439:5432
+    environment:
+      POSTGRES_DB: checkpoint_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+
+  checkpoint-adminer:
+    image: adminer:4.8.1-standalone
+    container_name: checkpoint_adminer
+    ports:
+      - 5437:8080
+    depends_on:
+      - checkpoint-db
