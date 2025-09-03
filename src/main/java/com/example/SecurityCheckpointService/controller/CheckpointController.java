@@ -3,15 +3,12 @@ package com.example.SecurityCheckpointService.controller;
 
 
 import com.example.SecurityCheckpointService.model.Checkpoint;
-import com.example.SecurityCheckpointService.service.CheckpointService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/checkpoints")
