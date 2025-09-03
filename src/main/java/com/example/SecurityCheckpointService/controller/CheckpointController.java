@@ -27,18 +27,4 @@ public class CheckpointController {
         return ResponseEntity.ok(service.recordCheckpoint(packageId, locationId));
     }
 
-    @GetMapping
-    @Operation(summary = "Obtenir tous les points de contrôle", description = "Récupère la liste de tous les points de contrôle")
-    @ApiResponse(responseCode = "200", description = "Liste des points de contrôle récupérée avec succès")
-    public ResponseEntity<List<Checkpoint>> getAllCheckpoints() {
-        return ResponseEntity.ok(service.getAllCheckpoints());
-    }
-
-    @GetMapping("/{id}")
-    @Operation(summary = "Obtenir un point de contrôle par ID", description = "Récupère un point de contrôle spécifique par son ID")
-    @ApiResponse(responseCode = "200", description = "Point de contrôle récupéré avec succès")
-    @ApiResponse(responseCode = "404", description = "Point de contrôle non trouvé")
-    public ResponseEntity<Checkpoint> getCheckpointById(@PathVariable Long id) {
-        return ResponseEntity.ok(service.getCheckpointById(id));
-    }
 }
