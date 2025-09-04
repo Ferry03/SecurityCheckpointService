@@ -14,6 +14,8 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/checkpoints")
 @RequiredArgsConstructor
@@ -27,5 +29,13 @@ public class CheckpointController {
     @ApiResponse(responseCode = "200", description = "Point de contrôle enregistré avec succès")
     public ResponseEntity<CheckpointResponseDTO> recordCheckpoint(@RequestBody CheckpointRequestDTO request) {
         return ResponseEntity.ok(service.recordCheckpoint(request));
+    }
+
+
+    @GetMapping
+    @Operation(summary = "Obtenir tous les points de contrôle", description = "Récupère la liste de tous les points de contrôle")
+    @ApiResponse(responseCode = "200", description = "Liste des points de contrôle récupérée avec succès")
+    public ResponseEntity<List<CheckpointResponseDTO>> getAllCheckpoints() {
+        return ResponseEntity.ok(service.getAllCheckpoints());
     }
 }
