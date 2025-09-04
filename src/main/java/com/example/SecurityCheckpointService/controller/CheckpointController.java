@@ -38,4 +38,13 @@ public class CheckpointController {
     public ResponseEntity<List<CheckpointResponseDTO>> getAllCheckpoints() {
         return ResponseEntity.ok(service.getAllCheckpoints());
     }
+
+
+    @GetMapping("/{id}")
+    @Operation(summary = "Obtenir un point de contrôle par ID", description = "Récupère un point de contrôle spécifique par son ID")
+    @ApiResponse(responseCode = "200", description = "Point de contrôle récupéré avec succès")
+    @ApiResponse(responseCode = "404", description = "Point de contrôle non trouvé")
+    public ResponseEntity<CheckpointResponseDTO> getCheckpointById(@PathVariable Long id) {
+        return ResponseEntity.ok(service.getCheckpointById(id));
+    }
 }
